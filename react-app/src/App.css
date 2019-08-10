@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -30,4 +32,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+body {
+  /*background-color: #39CCCC !important;  */
+  font-family: 'Nunito Sans', sans-serif !important;
+}
+
+#textWeather {
+  color: #111111;
+  margin-top: 2em;
+  
 }

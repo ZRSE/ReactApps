@@ -1,30 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Hello from './Hello';
+import FetchFromApi from './FetchFromApi';
+import 'bootstrap/dist/css/bootstrap.css';
 
-function App() {
-  return (
-    /*<div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>*/
+//Bootstrap imports
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-    <section>
-      <h1>Hello World</h1>
-    </section>
-  );
+import Button from 'react-bootstrap/Button';
+
+
+
+class App extends React.Component {
+  render() {
+    return /*<Hello firstName='Zakarias' lastName='Røse'/>*/ (
+     <Container id="textWeather">
+
+       <Row>
+       <Col lg="true" id="t1"><h1></h1></Col> 
+       </Row>
+       <Row>
+       <Col lg="true"></Col> 
+       </Row>
+       <Row>
+       <Col lg="true" id="t2"><h2><FetchFromApi weatherData /></h2></Col>
+        </Row>
+
+     </Container>
+    )
+  }
 }
 
 export default App;
