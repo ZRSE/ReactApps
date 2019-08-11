@@ -10,8 +10,12 @@ class FetchFromApi extends React.Component {
   }
 
   componentDidMount() {
+    //const {handleForCity} = this.props.city;
+
     fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=Oslo&appid=d085c399bf66fa78d7dc5eb696097fd8"
+      //'http://api.openweathermap.org/data/2.5/weather?q='`${handleForCity}&appid=d085c399bf66fa78d7dc5eb696097fd8`
+      'http://api.openweathermap.org/data/2.5/weather?q=oslo&appid=d085c399bf66fa78d7dc5eb696097fd8'
+
     )
       .then(results => {
         return results.json();
@@ -21,7 +25,7 @@ class FetchFromApi extends React.Component {
           return (
             <div key={desc.weather}>
               <p>
-                Currently {desc.description} in {data.name}
+                Currently {desc.description} in {data.name}, {data.sys.country}
               </p>
             </div>
           );
