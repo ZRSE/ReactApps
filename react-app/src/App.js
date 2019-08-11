@@ -1,36 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Hello from './Hello';
-import FetchFromApi from './FetchFromApi';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from "react";
+import "./App.css";
+
+//Component imports
+import Hello from "./Hello";
+import FetchFromApi from "./FetchFromApi";
+import Navigation from "./Navigation";
 
 //Bootstrap imports
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-
-import Button from 'react-bootstrap/Button';
-
-
+import "bootstrap/dist/css/bootstrap.css";
+import Container from "react-bootstrap/Container";
+import { Row, Col } from "react-bootstrap";
+/*import Col from 'react-bootstrap/Col'*/
 
 class App extends React.Component {
   render() {
-    return /*<Hello firstName='Zakarias' lastName='Røse'/>*/ (
-     <Container id="textWeather">
+    return (
+      /*<Hello firstName='Zakarias' lastName='Røse'/>*/ <Container>
+        <Navigation name="Z's weatherapp" />
 
-       <Row>
-       <Col lg="true" id="t1"><h1></h1></Col> 
-       </Row>
-       <Row>
-       <Col lg="true"></Col> 
-       </Row>
-       <Row>
-       <Col lg="true" id="t2"><h2><FetchFromApi weatherData /></h2></Col>
+        <Row>
+          <Col lg="true" id="t1">
+            <h1 />
+          </Col>
         </Row>
-
-     </Container>
-    )
+        <Row>
+          <Col lg="true" />
+        </Row>
+        <Row>
+          <Col lg="true" id="t2">
+            <h2>
+              <FetchFromApi weatherData />
+            </h2>
+          </Col>
+        </Row>
+      </Container>
+    );
   }
 }
 
