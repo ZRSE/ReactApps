@@ -6,12 +6,14 @@
 body {
   /*background-color: #39CCCC !important;  */
   font-family: 'Nunito Sans', sans-serif !important;
+  
 }
 
 #textWeather {
   color: #111111;
   margin-top: 2em;
-  
+  font-weight: 300 !important;
+  font-style: italic;
 }
 
 .mainCont {
@@ -19,12 +21,24 @@ body {
 }
 
 .mainCols {
- /* border: 2px solid red;*/
+ /*border: 2px solid red;*/
   text-align: center;
 }
 
-.searchCol {
+.searchCol, .sCols {
   /*border: 2px solid blue;*/
-  height: 6em;
   margin-top: 2em;
+  text-align: center;
+}
+
+
+
+.sCols ul {
+  list-style-type: none;
+
+
+}
+
+.sCols li {
+ 
 }
