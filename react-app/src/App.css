@@ -1,44 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700&display=swap");
 
-
-
-
-body {
+* {
   /*background-color: #39CCCC !important;  */
-  font-family: 'Nunito Sans', sans-serif !important;
-  
-}
-
-#textWeather {
-  color: #111111;
-  margin-top: 2em;
+  font-family: "Nunito Sans", sans-serif !important;
   font-weight: 300 !important;
-  font-style: italic;
 }
 
 .mainCont {
-  margin-top: 6em;
+  margin-top: 10em;
 }
 
 .mainCols {
- /*border: 2px solid red;*/
+  /*border: 2px solid red;*/
   text-align: center;
 }
 
-.searchCol, .sCols {
+.searchCol,
+.sCols {
   /*border: 2px solid blue;*/
-  margin-top: 2em;
+  margin-top: 8em;
   text-align: center;
 }
-
-
 
 .sCols ul {
   list-style-type: none;
-
-
 }
 
-.sCols li {
- 
-}
+

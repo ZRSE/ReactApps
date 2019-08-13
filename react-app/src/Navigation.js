@@ -2,6 +2,8 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
+//Navigation, no routing atm
+
 class Navigation extends React.Component {
   render() {
     return (

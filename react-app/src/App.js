@@ -9,20 +9,14 @@ import MainContent from "./MainContent";
 //Bootstrap imports
 import "bootstrap/dist/css/bootstrap.css";
 import Container from "react-bootstrap/Container";
+import { Row, Col } from "react-bootstrap";
 
-import { Row, Col} from "react-bootstrap";
-/*import Col from 'react-bootstrap/Col'*/
 
+//Bootstrap grid container, with navigation and current weather
 class App extends React.Component {
   render() {
-
-
     return (
-      /*<Hello firstName='Zakarias' lastName='Røse'/>*/ 
       <Container className="mainCont">
-        <Navigation name="Z's weatherapp" />
-
-        
         <Row>
           <Col className="mainCols" lg="true" id="t1">
             <Navigation name="Z's weatherapp" />
@@ -31,7 +25,7 @@ class App extends React.Component {
         <Row>
           <Col sm className="mainCols" lg="true" id="t2" />
           <Col sm={8} className="mainCols" lg="true">
-            <h2>
+            <h2 id="">
               <FetchCurrentFromApi weatherData />
             </h2>
           </Col>
@@ -39,8 +33,6 @@ class App extends React.Component {
         </Row>
 
         <MainContent />
-
-
       </Container>
     );
   }
