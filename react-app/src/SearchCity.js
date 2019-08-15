@@ -8,10 +8,11 @@ class SearchCity extends React.Component {
   constructor(props) {
     super(props);
 
+    
     //Initial state
 
     this.state = {
-      cityName: ''
+     // cityName: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -20,28 +21,29 @@ class SearchCity extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-
-    alert("Cityname: " + this.state.value);
+    //alert("Cityname: " + this.state.value);
   }
 
   onChange(event) {
-    this.setState({value: event.target.value});
+    //this.setState({value: event.target.value});  lift this up to fetch
+    this.props.onCityNameChange(event.target.value);
   }
+  
 
 
   render() {
 
     const cityName = this.props.cityName;
+    //                  value={this.state.value} onChange={this.onChange} 
+
 
     return (
-      <Row>
-        <Col sm className="sCols" />
-        <Col sm={6} lg={4} className="searchCol">
+    
           <div>
             <Form onSubmit={this.onSubmit}>
               <InputGroup className="mb-3">
                 <FormControl
-                  value={this.state.value} onChange={this.onChange} 
+                  value={cityName} onChange={this.onChange} 
                   placeholder="Enter city"
                   aria-label="cityName"
                   aria-describedby="basic-addon2"
@@ -57,9 +59,7 @@ class SearchCity extends React.Component {
               </InputGroup>
             </Form>
           </div>
-        </Col>
-        <Col sm className="sCols" />
-      </Row>
+       
     );
   }
 }

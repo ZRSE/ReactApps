@@ -11,13 +11,13 @@
 }
 
 .mainCols {
-  border: 2px solid red;
+ /* border: 2px solid red;*/
   text-align: center;
 }
 
 .searchCol,
 .sCols {
-  border: 2px solid blue;
+  /*border: 2px solid blue;*/
   margin-top: 8em;
   text-align: center;
 }
@@ -26,4 +26,7 @@
   list-style-type: none;
 }
 
+.sCols2 {
+  margin-top: 5em;
+}
 

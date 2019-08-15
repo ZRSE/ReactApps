@@ -13,7 +13,6 @@ class FetchForecastFromApi extends React.Component {
       //initial state
       forecastData: [],
       forecast: [],
-      cityName: ''
     };
   }
 

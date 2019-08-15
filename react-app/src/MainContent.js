@@ -7,7 +7,7 @@ import { Row, Col } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 
 //Grid of component containing forecast data
-
+/*
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
@@ -32,4 +32,4 @@ class MainContent extends React.Component {
 export default MainContent;
 
 
-//  <SearchCity />
+//  <SearchCity />*/
