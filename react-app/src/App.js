@@ -5,6 +5,8 @@ import "./App.css";
 import FetchCurrentFromApi from "./FetchCurrentFromApi";
 import Navigation from "./Navigation";
 import MainContent from "./MainContent";
+import SearchCity from "./SearchCity";
+
 
 //Bootstrap imports
 import "bootstrap/dist/css/bootstrap.css";
@@ -31,11 +33,11 @@ class App extends React.Component {
           </Col>
           <Col sm className="mainCols" lg="true" />
         </Row>
-
-        <MainContent />
+        <SearchCity/>
       </Container>
     );
   }
 }
 
 export default App;
+//        <MainContent />

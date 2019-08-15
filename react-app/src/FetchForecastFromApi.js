@@ -7,17 +7,17 @@ let unit = "&units=metric";
 var city = "Oslo";
 
 class FetchForecastFromApi extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       //initial state
       forecastData: [],
-      forecast: []
+      forecast: [],
+      cityName: ''
     };
   }
 
   //When component is inserted into tree, invoke this method
-
   componentDidMount() {
     //const {handleForCity} = this.props.city;
     fetch(APIurl + city + unit + APIkey)

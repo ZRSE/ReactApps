@@ -3,48 +3,53 @@ import React from "react";
 import { Row, Col, FormControl, Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 
-var city = "";
 
 class SearchCity extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    //Initial state
 
     this.state = {
-      cityName: ""
+      cityName: ''
     };
+
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    city = this.city;
+  onSubmit(event) {
+    event.preventDefault();
 
-    //console.log(city.value);
-    let cityName = city.value;
-    this.setState({ cityName: cityName });
-    console.log("Cityname in SearchCity: ", this.state.cityName);
+    alert("Cityname: " + this.state.value);
   }
 
-  //On button click below, runs onSubmit above, prevent default and sets state as input value
+  onChange(event) {
+    this.setState({value: event.target.value});
+  }
+
 
   render() {
+
+    const cityName = this.props.cityName;
+
     return (
       <Row>
         <Col sm className="sCols" />
         <Col sm={6} lg={4} className="searchCol">
           <div>
-            <Form>
+            <Form onSubmit={this.onSubmit}>
               <InputGroup className="mb-3">
                 <FormControl
+                  value={this.state.value} onChange={this.onChange} 
                   placeholder="Enter city"
                   aria-label="cityName"
                   aria-describedby="basic-addon2"
                   type="text"
-                  ref={cityName => (this.city = cityName)}
                   name="city"
                 />
                 <InputGroup.Append>
-                  <Button variant="primary" onClick={this.onSubmit}>     
+                  <Button variant="primary" type="submit" value="submit">     
                     {" "}
                     Search
                   </Button>
@@ -58,6 +63,9 @@ class SearchCity extends React.Component {
     );
   }
 }
+
+
+
 
 export default SearchCity;
 

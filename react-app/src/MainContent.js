@@ -16,7 +16,7 @@ class MainContent extends React.Component {
   render() {
     return (
       <Container>
-        <SearchCity />
+     
         <Row>
           <Col className="sCols" />
           <Col className="sCols">
@@ -30,3 +30,6 @@ class MainContent extends React.Component {
 }
 
 export default MainContent;
+
+
+//  <SearchCity />
