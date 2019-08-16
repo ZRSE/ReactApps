@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-const APIurl = "http://api.openweathermap.org/data/2.5/forecast?q=";
+const APIurl = "https://api.openweathermap.org/data/2.5/forecast?q=";
 const APIkey = "&appid=d085c399bf66fa78d7dc5eb696097fd8";
 let unit = "&units=metric";
 var city = "Oslo";

@@ -7,18 +7,18 @@
 }
 
 .mainCont {
-  margin-top: 10em;
+  margin-top: 6em;
 }
 
 .mainCols {
- /* border: 2px solid red;*/
+  /*border: 2px solid red;*/
   text-align: center;
 }
 
 .searchCol,
 .sCols {
   /*border: 2px solid blue;*/
-  margin-top: 8em;
+  margin-top: 4em;
   text-align: center;
 }
 
@@ -28,5 +28,9 @@
 
 .sCols2 {
   margin-top: 5em;
+}
+
+.searchInput {
+  margin-top: 4em;
 }
 

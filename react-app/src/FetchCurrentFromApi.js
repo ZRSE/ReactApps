@@ -1,11 +1,12 @@
 import React from "react";
 import SearchCity from "./SearchCity";
 
-const APIurl = "http://api.openweathermap.org/data/2.5/weather?q=";
+import { Row, Col } from "react-bootstrap";
+
+const APIurl = "https://api.openweathermap.org/data/2.5/weather?q=";
 const APIkey = "&appid=d085c399bf66fa78d7dc5eb696097fd8";
 
 let unit = "&units=metric";
-
 
 class FetchCurrentFromApi extends React.Component {
   constructor(props) {
@@ -16,14 +17,14 @@ class FetchCurrentFromApi extends React.Component {
 
     this.state = {
       //initial state
-      cityName: 'Oslo',
-      weatherData: "", //[]
+      cityName: "Oslo",
+      weatherData: "" //[]
     };
   }
 
   //To get value from input field @  ./SearchCity.js
   onChangeCity(cityName) {
-    this.setState({cityName});
+    this.setState({ cityName });
   }
 
   CityChange(cityName) {
@@ -31,7 +32,6 @@ class FetchCurrentFromApi extends React.Component {
   }
 
   // function: when form is "finished" ->     this.componentDidMount();
-
 
   componentDidMount() {
     console.log("I run now");
@@ -42,7 +42,6 @@ class FetchCurrentFromApi extends React.Component {
       .then(data => {
         let weatherData = data.weather.map(desc => {
           return (
-           
             <div key={desc.weather}>
               <img
                 className="weatherIcons"
@@ -50,9 +49,9 @@ class FetchCurrentFromApi extends React.Component {
                 alt="weather_icons"
               />
               <p>
-                Currently  {data.main.temp}&#8451; and {desc.description} in {data.name}, {data.sys.country}
+                Currently {data.main.temp}&#8451; and {desc.description} in{" "}
+                {data.name}, {data.sys.country}
               </p>
-             
             </div>
           );
         });
@@ -63,7 +62,6 @@ class FetchCurrentFromApi extends React.Component {
   }
 
   render() {
-
     const cityName = this.state.cityName;
     console.log("Check if in this components state: " + this.state.cityName);
     console.log("Url atm: " + APIurl + this.state.cityName + unit + APIkey);
@@ -71,10 +69,18 @@ class FetchCurrentFromApi extends React.Component {
     return (
       <div className="container" id="textWeather">
         {this.state.weatherData}
-        <SearchCity onCityNameChange={this.onChangeCity} cityNameChange={this.CityChange}  />
 
+        <Row>
+          <Col/>
+          <Col sm={6}className="searchInput">
+            <SearchCity
+              onCityNameChange={this.onChangeCity}
+              cityNameChange={this.CityChange}
+            />
+          </Col>
+          <Col/>
+        </Row>
       </div>
-
     );
   }
 }
