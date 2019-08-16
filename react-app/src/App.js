@@ -31,7 +31,8 @@ class App extends React.Component {
 
           <Col sm={8} className="sCols" lg="true">
             <h2 id="">
-              <FetchCurrentFromApi weatherData />
+            <FetchCurrentFromApi weatherData />
+
             </h2>
           </Col>
 

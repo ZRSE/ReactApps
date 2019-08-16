@@ -22,10 +22,14 @@ class SearchCity extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     //alert("Cityname: " + this.state.value);
+    this.props.cityNameChange(event.target.value);
+
   }
 
   onChange(event) {
+    event.preventDefault();
     //this.setState({value: event.target.value});  lift this up to fetch
+    console.log(event.target.value);
     this.props.onCityNameChange(event.target.value);
   }
   
@@ -42,8 +46,9 @@ class SearchCity extends React.Component {
           <div>
             <Form onSubmit={this.onSubmit}>
               <InputGroup className="mb-3">
-                <FormControl
-                  value={cityName} onChange={this.onChange} 
+                <FormControl  
+                  value={cityName}
+                  onChange={this.onChange}
                   placeholder="Enter city"
                   aria-label="cityName"
                   aria-describedby="basic-addon2"
