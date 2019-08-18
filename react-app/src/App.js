@@ -5,8 +5,6 @@ import "./App.css";
 import FetchCurrentFromApi from "./FetchCurrentFromApi";
 import FetchForecastFromApi from "./FetchForecastFromApi";
 import Navigation from "./Navigation";
-import MainContent from "./MainContent";
-import SearchCity from "./SearchCity";
 
 //Bootstrap imports
 import "bootstrap/dist/css/bootstrap.css";
@@ -17,14 +15,14 @@ import { Row, Col } from "react-bootstrap";
 class App extends React.Component {
   render() {
     return (
-      <Container className="mainCont">
-        <Row>
+      <Container className="mainContainer">
+        <Row className="navigationRow">
           <Col className="mainCols" lg="true" id="t1">
             <Navigation name="Z's weatherapp" />
           </Col>
         </Row>
 
-        <Row>
+        <Row className="searchRow">
           <Col sm className="sCols" lg="true" id="t2" />
 
           <Col sm={12} className="sCols" lg="true">
@@ -36,13 +34,10 @@ class App extends React.Component {
           <Col sm className="sCols" lg="true" />
         </Row>
 
-        <Row>
-          <Col sm className="mainCols" lg="true" />
-          <Col sm={5} className="mainCols">
-            {" "}
-            <FetchForecastFromApi />
+        <Row className="forecastRow">
+          <Col className="cards" md="auto">
+            <FetchForecastFromApi fiveDay />
           </Col>
-          <Col sm className="mainCols" lg="true" />
         </Row>
       </Container>
     );

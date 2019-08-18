@@ -1,18 +1,16 @@
 import React from "react";
 
-import { Row, Col, FormControl, Button, Form } from "react-bootstrap";
+import { FormControl, Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
-
 
 class SearchCity extends React.Component {
   constructor(props) {
     super(props);
 
-    
     //Initial state
 
     this.state = {
-     // cityName: ''
+      // cityName: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -23,7 +21,6 @@ class SearchCity extends React.Component {
     event.preventDefault();
     //alert("Cityname: " + this.state.value);
     this.props.cityNameChange(event.target.value);
-
   }
 
   onChange(event) {
@@ -32,45 +29,36 @@ class SearchCity extends React.Component {
     console.log(event.target.value);
     this.props.onCityNameChange(event.target.value);
   }
-  
-
 
   render() {
-
     const cityName = this.props.cityName;
-    //                  value={this.state.value} onChange={this.onChange} 
-
+    //                  value={this.state.value} onChange={this.onChange}
 
     return (
-    
-          <div>
-            <Form onSubmit={this.onSubmit}>
-              <InputGroup className="mb-3">
-                <FormControl  
-                  value={cityName}
-                  onChange={this.onChange}
-                  placeholder="Enter city"
-                  aria-label="cityName"
-                  aria-describedby="basic-addon2"
-                  type="text"
-                  name="city"
-                />
-                <InputGroup.Append>
-                  <Button variant="primary" type="submit" value="submit">     
-                    {" "}
-                    Search
-                  </Button>
-                </InputGroup.Append>
-              </InputGroup>
-            </Form>
-          </div>
-       
+      <div>
+        <Form onSubmit={this.onSubmit}>
+          <InputGroup className="mb-3">
+            <FormControl
+              value={cityName}
+              onChange={this.onChange}
+              placeholder="Enter city"
+              aria-label="cityName"
+              aria-describedby="basic-addon2"
+              type="text"
+              name="city"
+            />
+            <InputGroup.Append>
+              <Button variant="primary" type="submit" value="submit">
+                {" "}
+                Search
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Form>
+      </div>
     );
   }
 }
-
-
-
 
 export default SearchCity;
 

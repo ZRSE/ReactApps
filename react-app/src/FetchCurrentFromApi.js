@@ -34,7 +34,7 @@ class FetchCurrentFromApi extends React.Component {
   // function: when form is "finished" ->     this.componentDidMount();
 
   componentDidMount() {
-    console.log("I run now");
+    // console.log("I run now");
     fetch(APIurl + this.state.cityName + unit + APIkey)
       .then(results => {
         return results.json();
@@ -49,8 +49,8 @@ class FetchCurrentFromApi extends React.Component {
                 alt="weather_icons"
               />
               <p>
-                Currently {data.main.temp}&#8451; and {desc.description} in{" "}
-                {data.name}, {data.sys.country}
+                Currently {Math.round(data.main.temp)}&#8451; and{" "}
+                {desc.description} in {data.name}, {data.sys.country}
               </p>
             </div>
           );
@@ -62,23 +62,23 @@ class FetchCurrentFromApi extends React.Component {
   }
 
   render() {
-    const cityName = this.state.cityName;
-    console.log("Check if in this components state: " + this.state.cityName);
-    console.log("Url atm: " + APIurl + this.state.cityName + unit + APIkey);
+    //const cityName = this.state.cityName;
+    //console.log("Check if in this components state: " + this.state.cityName);
+    //console.log("Url atm: " + APIurl + this.state.cityName + unit + APIkey);
 
     return (
       <div className="container" id="textWeather">
         {this.state.weatherData}
 
         <Row>
-          <Col/>
-          <Col sm={6}className="searchInput">
+          <Col />
+          <Col sm={6} className="searchInput">
             <SearchCity
               onCityNameChange={this.onChangeCity}
               cityNameChange={this.CityChange}
             />
           </Col>
-          <Col/>
+          <Col />
         </Row>
       </div>
     );

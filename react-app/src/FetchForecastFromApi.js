@@ -1,5 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "bootstrap/dist/css/bootstrap.css";
+
+import { Col } from "react-bootstrap";
 
 const APIurl = "https://api.openweathermap.org/data/2.5/forecast?q=";
 const APIkey = "&appid=d085c399bf66fa78d7dc5eb696097fd8";
@@ -13,6 +16,7 @@ class FetchForecastFromApi extends React.Component {
       //initial state
       forecastData: [],
       forecast: [],
+      fiveDay: []
     };
   }
 
@@ -24,45 +28,50 @@ class FetchForecastFromApi extends React.Component {
         return results.json();
       })
       .then(data => {
-        let forecastData = data.list.map(forecast => {
-          return (
-            <div key={forecast.list}>
-              <Card style={{ width: "18rem" }}>
-                <Card.Body>
-                  <Card.Title>{forecast.main.temp}&#8451;</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    <img
-                      className="weatherIcons"
-                      src={
-                        "http://openweathermap.org/img/w/" +
-                        forecast.weather[0].icon +
-                        ".png"
-                      }
-                      alt="weather_icons"
-                    />
-                  </Card.Subtitle>
-                  <Card.Text>{forecast.dt_txt}</Card.Text>
+        let fiveDay = data.list.filter(reading =>
+          reading.dt_txt.includes("12:00:00")
+        );
+        console.log("FiveDay", fiveDay);
 
-                  <Card.Subtitle className="mb-2 text-muted">
-                    Oslo
-                  </Card.Subtitle>
-                </Card.Body>
-              </Card>
-            </div>
+        let forecastData = fiveDay.map(forecast => {
+          return (
+            <Card style={{ width: "10rem" }}>
+              <Card.Body>
+                <Card.Title>{Math.round(forecast.main.temp)}&#8451;</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  <img
+                    className="weatherIcons"
+                    src={
+                      "http://openweathermap.org/img/w/" +
+                      forecast.weather[0].icon +
+                      ".png"
+                    }
+                    alt="weather_icons"
+                  />
+                </Card.Subtitle>
+                <Card.Text>{forecast.dt_txt}</Card.Text>
+
+                <Card.Subtitle className="mb-2 text-muted" />
+              </Card.Body>
+            </Card>
           );
         });
 
-        this.setState({ forecastData: forecastData });
+        this.setState({
+          forecastData: forecastData,
+          fiveDay: fiveDay
+        });
         console.log("state", this.state.forecastData);
+        console.log("fiveday", this.state.fiveDay);
       });
   }
 
+  /*fiveDayFormatting = () => {
+    return this.state.fiveDay.map(reading, index) 
+  }*/
+
   render() {
-    return (
-      <div className="container" id="textWeather">
-        <ul>{this.state.forecastData}</ul>
-      </div>
-    );
+    return <div className="forecastData">{this.state.forecastData}</div>;
   }
 }
 
