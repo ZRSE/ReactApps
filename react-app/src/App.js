@@ -2,10 +2,12 @@ import React from "react";
 import "./App.css";
 
 //Component imports
-import FetchCurrentFromApi from "./FetchCurrentFromApi";
-import FetchForecastFromApi from "./FetchForecastFromApi";
+
 import Navigation from "./Navigation";
 import SearchCity from "./SearchCity";
+
+import CurrentWeather from './CurrentWeather';
+import ForecastWeather from './ForecastWeather';
 
 
 //Bootstrap imports
@@ -33,9 +35,7 @@ class App extends React.Component {
           <Col sm className="sCols" lg="true" id="t2" />
 
           <Col sm={12} className="sCols" lg="true">
-            <h2 id="">
-              <FetchCurrentFromApi weatherData  />
-            </h2>
+            <CurrentWeather />
           </Col>
 
           <Col sm className="sCols" lg="true">
@@ -45,9 +45,19 @@ class App extends React.Component {
         </Row>
 
         <Row className="forecastRow">
-          
 
-          <Col className="cards" md="auto"><FetchForecastFromApi cityName /></Col>
+          <Col className="cards" md="auto">
+
+          </Col>
+
+          <Col className="cards" md="auto">
+            <ForecastWeather />
+          </Col>
+
+          <Col className="cards" md="auto">
+            
+          </Col>
+          
         </Row>
       </Container>
     );
@@ -56,3 +66,8 @@ class App extends React.Component {
 
 export default App;
 //        <MainContent />
+
+
+// <FetchCurrentFromApi weatherData  />
+
+//<FetchForecastFromApi cityName />

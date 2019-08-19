@@ -15,14 +15,13 @@ class FetchForecastFromApi extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onChangeCity = this.onChangeCity.bind(this);
-    this.CityChange = this.CityChange.bind(this);
+
 
     this.state = {
       //initial state
       error: null,
       isLoaded: false,
-      cityName: this.props.cityName,
+      cityName: props.cityName,
 
       forecastData: [],
       forecast: [],
@@ -32,25 +31,13 @@ class FetchForecastFromApi extends React.Component {
   }
 
 
-  
 
-   //To get value from input field @  ./SearchCity.js
-   onChangeCity(cityName) {
-    this.setState({ cityName  });
-  }
-
-  CityChange(cityName) {
-    this.componentDidMount();
-  }
-
-
-  
 
   //When component is inserted into tree, invoke this method
   componentDidMount() {
-    //const {handleForCity} = this.props.city;
-    console.log("State Forecast cityName", this.state.cityName);
+    console.log("ForecastWeatherFetch state (city): " + this.state.cityName);
 
+    //const {handleForCity} = this.props.city;
     console.log("URL: ", APIurl + this.state.cityName + unit + APIkey)
     fetch(APIurl + this.state.cityName + unit + APIkey)
       .then(results => {
@@ -105,7 +92,6 @@ class FetchForecastFromApi extends React.Component {
           forecastData: forecastData,
           fiveDay: fiveDay,
 
-          cityName: this.props.cityName,
 
           isLoaded: true
 

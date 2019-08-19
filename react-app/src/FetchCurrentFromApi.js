@@ -12,29 +12,21 @@ class FetchCurrentFromApi extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onChangeCity = this.onChangeCity.bind(this);
-    this.CityChange = this.CityChange.bind(this);
+    
 
     this.state = {
       //initial state
-      cityName: "Oslo",
+      cityName: props.cityName,
       weatherData: "" //[]
     };
   }
 
-  //To get value from input field @  ./SearchCity.js
-  onChangeCity(cityName) {
-    this.setState({ cityName });
-  }
 
-  CityChange(cityName) {
-    this.componentDidMount();
-  }
 
   // function: when form is "finished" ->     this.componentDidMount();
 
   componentDidMount() {
-    // console.log("I run now");
+     console.log("CurrentWeatherFetch state (city): " + this.state.cityName);
     fetch(APIurl + this.state.cityName + unit + APIkey)
       .then(results => {
         return results.json();
@@ -67,16 +59,8 @@ class FetchCurrentFromApi extends React.Component {
     //console.log("Url atm: " + APIurl + this.state.cityName + unit + APIkey);
 
     return (
-      <div className="container" id="textWeather">
+      <div>
         {this.state.weatherData}
-
-        <Row>
-          <Col />
-          <Col sm={6} className="searchInput">
-            
-          </Col>
-          <Col />
-        </Row>
       </div>
     );
   }
@@ -89,3 +73,12 @@ export default FetchCurrentFromApi;
                 onCityNameChange={this.onChangeCity}
                 cityNameChange={this.CityChange}
               />*/
+
+
+
+//Return 
+/*
+<div className="container" id="textWeather">
+        {this.state.weatherData}
+
+        </div>*/
