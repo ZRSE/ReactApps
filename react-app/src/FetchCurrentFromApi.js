@@ -57,11 +57,11 @@ class FetchCurrentFromApi extends React.Component {
         });
 
         this.setState({ weatherData: weatherData });
-        console.log("Current:", data);
       });
   }
 
   render() {
+
     //const cityName = this.state.cityName;
     //console.log("Check if in this components state: " + this.state.cityName);
     //console.log("Url atm: " + APIurl + this.state.cityName + unit + APIkey);
@@ -73,10 +73,7 @@ class FetchCurrentFromApi extends React.Component {
         <Row>
           <Col />
           <Col sm={6} className="searchInput">
-            <SearchCity
-              onCityNameChange={this.onChangeCity}
-              cityNameChange={this.CityChange}
-            />
+            
           </Col>
           <Col />
         </Row>
@@ -86,3 +83,9 @@ class FetchCurrentFromApi extends React.Component {
 }
 
 export default FetchCurrentFromApi;
+
+
+/*<SearchCity
+                onCityNameChange={this.onChangeCity}
+                cityNameChange={this.CityChange}
+              />*/

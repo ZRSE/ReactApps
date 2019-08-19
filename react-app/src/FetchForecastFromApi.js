@@ -22,12 +22,13 @@ class FetchForecastFromApi extends React.Component {
       //initial state
       error: null,
       isLoaded: false,
-      cityName: "Oslo",
+      cityName: this.props.cityName,
 
       forecastData: [],
       forecast: [],
       fiveDay: []
     };
+
   }
 
 
@@ -35,7 +36,7 @@ class FetchForecastFromApi extends React.Component {
 
    //To get value from input field @  ./SearchCity.js
    onChangeCity(cityName) {
-    this.setState({ cityName });
+    this.setState({ cityName  });
   }
 
   CityChange(cityName) {
@@ -48,6 +49,9 @@ class FetchForecastFromApi extends React.Component {
   //When component is inserted into tree, invoke this method
   componentDidMount() {
     //const {handleForCity} = this.props.city;
+    console.log("State Forecast cityName", this.state.cityName);
+
+    console.log("URL: ", APIurl + this.state.cityName + unit + APIkey)
     fetch(APIurl + this.state.cityName + unit + APIkey)
       .then(results => {
         return results.json();
@@ -56,14 +60,12 @@ class FetchForecastFromApi extends React.Component {
         let fiveDay = data.list.filter(day =>
           day.dt_txt.includes("12:00:00")
         );
-        console.log("FiveDay", fiveDay);
 
         let forecastData = fiveDay.map(forecast => {
           let newDate = new Date();
           const weekday = forecast.dt * 1000;
           newDate.setTime(weekday);
 
-          console.log("City",this.state.cityName)
 
        
 
@@ -94,6 +96,7 @@ class FetchForecastFromApi extends React.Component {
               </Card.Body>
             </Card>
 
+              
                
           );
         });
@@ -101,27 +104,40 @@ class FetchForecastFromApi extends React.Component {
         this.setState({
           forecastData: forecastData,
           fiveDay: fiveDay,
+
+          cityName: this.props.cityName,
+
           isLoaded: true
+
         });
-        console.log("state", this.state.forecastData);
-        console.log("fiveday", this.state.fiveDay);
+        
       });
 
       
   }
 
+  
 
 
   render() {
     const { error, isLoaded, forecastData } = this.state;
+
+    console.log("Forecast, cityName value:" + this.state.cityName);
+    
 
     if (error) {
       return <div>Error: {error.message} </div>;
     } else if (!isLoaded) {
       return <div>Loading weather..</div>;
     } else {
+
+     
+     
       return (
+        
         <div className="forecastData">
+
+
           <h1>{this.state.forecastData.name}</h1>
           {this.state.forecastData}
         </div>
