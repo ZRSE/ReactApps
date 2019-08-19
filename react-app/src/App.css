@@ -26,6 +26,7 @@
 .cards  {
 /*  color: blue;*/
   margin: auto;
+  text-align: center;
 }
 
 .forecastData {

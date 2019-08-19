@@ -49,7 +49,7 @@ class FetchCurrentFromApi extends React.Component {
                 alt="weather_icons"
               />
               <p>
-                Currently {Math.round(data.main.temp)}&#8451; and{" "}
+                Currently {Math.round(data.main.temp)}&#176; and{" "}
                 {desc.description} in {data.name}, {data.sys.country}
               </p>
             </div>
@@ -57,7 +57,7 @@ class FetchCurrentFromApi extends React.Component {
         });
 
         this.setState({ weatherData: weatherData });
-        console.log("state", this.state.weatherData);
+        console.log("Current:", data);
       });
   }
 

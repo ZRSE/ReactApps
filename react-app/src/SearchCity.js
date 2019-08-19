@@ -8,7 +8,6 @@ class SearchCity extends React.Component {
     super(props);
 
     //Initial state
-
     this.state = {
       // cityName: ''
     };
@@ -19,13 +18,11 @@ class SearchCity extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    //alert("Cityname: " + this.state.value);
     this.props.cityNameChange(event.target.value);
   }
 
   onChange(event) {
     event.preventDefault();
-    //this.setState({value: event.target.value});  lift this up to fetch
     console.log(event.target.value);
     this.props.onCityNameChange(event.target.value);
   }
