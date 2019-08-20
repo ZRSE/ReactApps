@@ -1,29 +1,24 @@
 import React from "react";
-import FetchCurrentFromApi from "./FetchCurrentFromApi";
-
 
 class CurrentWeather extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-           // weatherData: this.props.weatherData,
-        }
-    }
+    this.state = {
+         weatherData: this.props.weatherData,
+    };
+  }
 
-    render(){
+  render() {
+    // console.log("currentWeather.js, weatherData: " + this.state.weatherData)
+    console.log("CurrentWeather weatherData: ", this.props.weatherData)
 
-       // console.log("currentWeather.js, weatherData: " + this.state.weatherData)
-
-        return (
-            <div>
-                <h1>
-                </h1>
-            </div>
-
-        )
-    }
+    return (
+      <div className="currentWeather"> 
+        <h1>{this.props.weatherData}</h1>
+      </div>
+    );
+  }
 }
 
 export default CurrentWeather;
-

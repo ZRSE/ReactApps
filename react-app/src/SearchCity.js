@@ -3,62 +3,54 @@ import React from "react";
 import { FormControl, Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 
-import CurrentWeather from "./CurrentWeather";
-import ForecastWeather from "./ForecastWeather";
 
 import FetchForecastFromApi from "./FetchForecastFromApi";
-import FetchCurrentFromApi from "./FetchForecastFromApi";
+import FetchCurrentFromApi from "./FetchCurrentFromApi";
 
 class SearchCity extends React.Component {
   constructor(props) {
     super(props);
     //Initial state
     this.state = {
-      cityName: 'Bergen'
-      
+      cityName: "Madrid"
     };
-
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(event) {
-    /*event.preventDefault();*/
+    this.setState({ cityName: event.target.value });
+
     /*console.log(event.target.value);*/
-     //send eventTarget value som props med onCityNameChange
-
-    
-
+    //send eventTarget value som props med onCityNameChange
   }
 
   onSubmit(event) {
+    alert("State cityName: " + this.state.cityName);
+    event.preventDefault();
+    //{this.props.fetchApi}
+
     //alert(this.state.cityName);
     //this.props.onCityNameChange(event.target.value);
-    this.setState({ cityName: event.target.value });
-    event.preventDefault();
-   // this.props.cityNameChange();
+    // this.props.cityNameChange();
   }
-
 
   render() {
     //const cityName = this.props.cityName;
     //                  value={this.state.value} onChange={this.onChange}
 
     //alert(this.state.cityName);
-    console.log("Cityname state in SearchCity: ", this.state.cityName)
-
+    //console.log("Cityname state in SearchCity: ", this.state.cityName)
 
     return (
       <div>
-
-
-
+        <FetchCurrentFromApi cityName={this.state.cityName} />
 
         <Form onSubmit={this.onSubmit}>
           <InputGroup className="mb-3">
             <FormControl
-              value={this.state.value}
+              value={this.cityName}
               onChange={this.onChange}
               placeholder="Enter city"
               aria-label="cityName"
@@ -74,10 +66,9 @@ class SearchCity extends React.Component {
             </InputGroup.Append>
           </InputGroup>
         </Form>
+        <div />
 
-          
-      <FetchForecastFromApi cityName={this.state.cityName} cityNameChange={this.CityChange} />
-
+        <FetchForecastFromApi cityName={this.state.cityName} />
       </div>
     );
   }

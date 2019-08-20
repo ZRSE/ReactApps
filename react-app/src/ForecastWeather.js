@@ -1,27 +1,25 @@
 import React from "react";
-import FetchForecastFromApi from './FetchForecastFromApi';
 
 class ForecastWeather extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
+    this.state = {
+        forecastData: this.props.forecastData,
+    };
 
-        }
-    }
+}
 
-    render(){
-        
-        return (
-            <div>
-                
-                    
-            </div>
-            
-        )
-    }
+  render() {
+
+    console.log("state forecastdata ", this.props.forecastData);
+
+    return (
+    <div className="forecastData">
+        {this.props.forecastData}
+    </div>
+    );
+  }
 }
 
 export default ForecastWeather;
-
-                
