@@ -1,4 +1,5 @@
 import React from "react";
+import FetchCurrentFromApi from "./FetchCurrentFromApi";
 
 
 class CurrentWeather extends React.Component {
@@ -6,14 +7,19 @@ class CurrentWeather extends React.Component {
         super(props);
 
         this.state = {
-
+            weatherData: this.props.weatherData,
         }
     }
 
     render(){
+
+        console.log("currentWeather.js, weatherData: " + this.state.weatherData)
+
         return (
             <div>
-                <h1>CurrentWeather</h1>
+                <h1>
+                    <FetchCurrentFromApi />
+                </h1>
             </div>
 
         )

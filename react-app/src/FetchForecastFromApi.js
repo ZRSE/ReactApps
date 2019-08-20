@@ -21,7 +21,7 @@ class FetchForecastFromApi extends React.Component {
       //initial state
       error: null,
       isLoaded: false,
-      cityName: props.cityName,
+      cityName: 'Oslo', //
 
       forecastData: [],
       forecast: [],

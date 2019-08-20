@@ -1,5 +1,5 @@
 import React from "react";
-
+import FetchForecastFromApi from './FetchForecastFromApi';
 
 class ForecastWeather extends React.Component {
     constructor(props) {
@@ -12,7 +12,11 @@ class ForecastWeather extends React.Component {
 
     render(){
         return (
-            <div><h1>ForecastWeather</h1></div>
+            <div>
+                <h1>
+                    <FetchForecastFromApi />
+                </h1>
+            </div>
             
         )
     }
