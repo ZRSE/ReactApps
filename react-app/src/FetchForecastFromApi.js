@@ -15,13 +15,14 @@ class FetchForecastFromApi extends React.Component {
   constructor(props) {
     super(props);
 
-
+    //this.onChangeCity = this.onChangeCity.bind(this);
+    this.CityChange = this.CityChange.bind(this);
 
     this.state = {
       //initial state
       error: null,
       isLoaded: false,
-      cityName: 'Oslo', //
+      cityName: this.props.cityName, //oslo
 
       forecastData: [],
       forecast: [],
@@ -32,14 +33,22 @@ class FetchForecastFromApi extends React.Component {
 
 
 
+  CityChange() {
+    console.log("kjører denne?")
+    this.componentDidMount();
+  }
+
+
+
 
   //When component is inserted into tree, invoke this method
   componentDidMount() {
-    console.log("ForecastWeatherFetch state (city): " + this.state.cityName);
+    console.log("Cityname in fetchForecast:", this.props.cityName)
+    //console.log("ForecastWeatherFetch state (city): " + this.state.cityName);
 
     //const {handleForCity} = this.props.city;
-    console.log("URL: ", APIurl + this.state.cityName + unit + APIkey)
-    fetch(APIurl + this.state.cityName + unit + APIkey)
+    //console.log("URL: ", APIurl + this.state.cityName + unit + APIkey)
+    fetch(APIurl + this.props.cityName + unit + APIkey)
       .then(results => {
         return results.json();
       })
@@ -108,7 +117,7 @@ class FetchForecastFromApi extends React.Component {
   render() {
     const { error, isLoaded, forecastData } = this.state;
 
-    console.log("Forecast, cityName value:" + this.state.cityName);
+    //console.log("Forecast, cityName value:" + this.state.cityName);
     
 
     if (error) {
@@ -122,10 +131,7 @@ class FetchForecastFromApi extends React.Component {
       return (
         
         <div className="forecastData">
-
-
-          <h1>{this.state.forecastData.name}</h1>
-          {this.state.forecastData}
+            <h1>forecast fetch</h1>
         </div>
       );
     }
@@ -170,3 +176,11 @@ export default FetchForecastFromApi;
       console.log("fiveday", this.state.fiveDay);
     });
 }*/
+
+
+/*
+
+
+          <h1>{this.state.forecastData.name}</h1>
+          {this.state.forecastData}*
+*/

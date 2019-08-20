@@ -12,11 +12,12 @@ import FetchCurrentFromApi from "./FetchForecastFromApi";
 class SearchCity extends React.Component {
   constructor(props) {
     super(props);
-
     //Initial state
     this.state = {
-      cityName: 'Oslo'
+      cityName: 'Bergen'
+      
     };
+
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,29 +26,39 @@ class SearchCity extends React.Component {
   onChange(event) {
     /*event.preventDefault();*/
     /*console.log(event.target.value);*/
-    /*this.props.onCityNameChange(event.target.value);*/
+     //send eventTarget value som props med onCityNameChange
 
-    this.setState({ cityName: event.target.value });
+    
+
   }
 
   onSubmit(event) {
-    alert(this.state.cityName);
-
+    //alert(this.state.cityName);
+    //this.props.onCityNameChange(event.target.value);
+    this.setState({ cityName: event.target.value });
     event.preventDefault();
-    /*this.props.cityNameChange(event.target.value);*/
+   // this.props.cityNameChange();
   }
+
+
   render() {
     //const cityName = this.props.cityName;
     //                  value={this.state.value} onChange={this.onChange}
 
     //alert(this.state.cityName);
+    console.log("Cityname state in SearchCity: ", this.state.cityName)
+
 
     return (
       <div>
+
+
+
+
         <Form onSubmit={this.onSubmit}>
           <InputGroup className="mb-3">
             <FormControl
-              value={this.state.cityName}
+              value={this.state.value}
               onChange={this.onChange}
               placeholder="Enter city"
               aria-label="cityName"
@@ -63,6 +74,10 @@ class SearchCity extends React.Component {
             </InputGroup.Append>
           </InputGroup>
         </Form>
+
+          
+      <FetchForecastFromApi cityName={this.state.cityName} cityNameChange={this.CityChange} />
+
       </div>
     );
   }

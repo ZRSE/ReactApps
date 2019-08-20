@@ -7,18 +7,17 @@ class CurrentWeather extends React.Component {
         super(props);
 
         this.state = {
-            weatherData: this.props.weatherData,
+           // weatherData: this.props.weatherData,
         }
     }
 
     render(){
 
-        console.log("currentWeather.js, weatherData: " + this.state.weatherData)
+       // console.log("currentWeather.js, weatherData: " + this.state.weatherData)
 
         return (
             <div>
                 <h1>
-                    <FetchCurrentFromApi />
                 </h1>
             </div>
 
@@ -27,3 +26,4 @@ class CurrentWeather extends React.Component {
 }
 
 export default CurrentWeather;
+

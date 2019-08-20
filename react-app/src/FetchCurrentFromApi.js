@@ -12,7 +12,8 @@ class FetchCurrentFromApi extends React.Component {
   constructor(props) {
     super(props);
 
-    
+    this.onChangeCity = this.onChangeCity.bind(this);
+    this.CityChange = this.CityChange.bind(this);
 
     this.state = {
       //initial state
@@ -21,12 +22,20 @@ class FetchCurrentFromApi extends React.Component {
     };
   }
 
+  onChangeCity(cityName) {
+    this.setState({ cityName });
+  }
 
+  CityChange(cityName) {
+    this.componentDidMount();
+  }
 
   // function: when form is "finished" ->     this.componentDidMount();
 
   componentDidMount() {
-     console.log("CurrentWeatherFetch state (city): " + this.state.cityName);
+     //console.log("CurrentWeatherFetch state (city): " + this.state.cityName);
+     console.log("Cityname props in CurrentFetch: ", this.props.cityName)
+
     fetch(APIurl + this.state.cityName + unit + APIkey)
       .then(results => {
         return results.json();
@@ -64,15 +73,19 @@ class FetchCurrentFromApi extends React.Component {
 
     //        {this.state.weatherData}
 
+
     return (
       <div>
-        {this.state.weatherData}
+        <h2>Test</h2>
+
       </div>
     );
   }
 }
 
 export default FetchCurrentFromApi;
+
+//<h1> {this.state.weatherData} </h1>
 
 
 /*<SearchCity

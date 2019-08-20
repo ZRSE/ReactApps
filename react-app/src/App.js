@@ -35,7 +35,6 @@ class App extends React.Component {
           <Col sm className="sCols" lg="true" id="t2" />
 
           <Col sm={12} className="sCols" lg="true">
-            <CurrentWeather />
           </Col>
 
           <Col sm className="sCols" lg="true">
@@ -51,7 +50,6 @@ class App extends React.Component {
           </Col>
 
           <Col className="cards" md="auto">
-            <ForecastWeather />
           </Col>
 
           <Col className="cards" md="auto">

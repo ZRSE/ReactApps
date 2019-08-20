@@ -11,11 +11,11 @@ class ForecastWeather extends React.Component {
     }
 
     render(){
+        
         return (
             <div>
-                <h1>
-                    <FetchForecastFromApi />
-                </h1>
+                
+                    
             </div>
             
         )
@@ -23,3 +23,5 @@ class ForecastWeather extends React.Component {
 }
 
 export default ForecastWeather;
+
+                
